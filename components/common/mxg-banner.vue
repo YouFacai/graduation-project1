@@ -13,7 +13,7 @@
 		 indicator-color 指示点颜色
 		 indicator-active-color 当前选中的指示点颜色
 		 -->
-		<swiper class="banner-swiper" indicator-active-color="#fff" @change="swiperChange"
+		<swiper class="banner-swiper" indicator-active-color="#fff" @change="swiperChange" :current="current"
 			indicator-color="rgba(255, 255, 255, 0.5)" :indicator-dots="true" :autoplay="true" :interval="3000"
 			:duration="1000">
 			<swiper-item class="banner-item" v-for='(item,index) in bannerList' :key="index">
@@ -24,9 +24,6 @@
 </template>
 
 <script>
-	import {
-		watch
-	} from "vue"
 	export default {
 		props: {
 			bannerList: { // 轮播图数据
@@ -84,23 +81,22 @@
 </script>
 
 <style lang="scss">
-	/*不要少了 scss 标识*/
 	/* 轮播图 */
 	.banner-box {
 		position: relative;
-		padding-top: 50rpx;
+		padding-top: 120rpx;
 		/* #ifdef APP-PLUS */
-		/* 增加app状态栏高度，这样app、h5、小程序距离就一样 */
-		padding-top: calc(var(--status-bar-height) + 20rpx);
+		/* 增加app状态栏高度，这样app、h5、小程序距离就一样 (动态添加)*/
+		padding-top: calc(var(--status-bar-height) + 120rpx);
 
 		/* #endif */
 		.banner-bg {
 			position: absolute;
 			top: 0;
 			width: 100%;
-			height: 400rpx;
+			height: 470rpx;
 			/* #ifdef APP-PLUS */
-			height: calc(var(--status-bar-height) + 370rpx);
+			height: calc(var(--status-bar-height) + 470rpx);
 			/* #endif */
 			/* 过渡效果 */
 			transition: .5s;

@@ -7,6 +7,7 @@
 				"navigationBarTextStyle": "white", // 状态和导航字体样式
 				"app-plus": {
 					"titleNView": { //导航配置
+						"type": "transparent", //滚动条透明渐变
 						"searchInput": { //搜索框
 							"align": "center", //对齐方式
 							"placeholder": "搜索你想要的内容",
