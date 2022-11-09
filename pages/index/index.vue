@@ -6,6 +6,8 @@
 		<!-- #endif -->
 		<!-- 轮播图 -->
 		<mxgBanner></mxgBanner>
+		<!-- 分类模块导入 -->
+		<categoryBox></categoryBox>
 	</view>
 </template>
 
@@ -14,12 +16,15 @@
 	import mxgBanner from '@/components/common/mxg-banner.vue'
 	//引入input框组件
 	import searchInput from '@/components/common/search-input.vue'
-	//引入 model/searchVal.js、App组件 
+	//引入分类组件
+	import categoryBox from '@/pages/index/components/category-box.vue'
+	// model/searchVal.js模块导入 实现app端input文字轮播
 	import searchVal from '@/model/searchVal.js'
 	export default {
 		components: {
 			mxgBanner,
-			searchInput
+			searchInput,
+			categoryBox,
 		},
 		data() {
 			return {
