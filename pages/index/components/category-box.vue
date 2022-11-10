@@ -5,7 +5,7 @@
 			{{item.name}}
 		</view>
 		<view class="classify">
-			全部分类
+			 全部分类
 		</view>
 	</view>
 </template>
@@ -68,7 +68,7 @@
 			height: 70rpx;
 			text-align: center;
 			line-height: 70rpx;
-			background-color: $uni-color-primary;
+			background-color: $i-color-grey;
 			border-radius: 20rpx;
 			margin-top: 15rpx;
 			overflow: hidden;

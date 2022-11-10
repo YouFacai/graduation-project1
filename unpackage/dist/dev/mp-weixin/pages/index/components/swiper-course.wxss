@@ -15,19 +15,37 @@
 /* 颜色变量 */
 /*文本基本颜色*/
 /* 下划线 */
-.search-box {
-  position: absolute;
-  left: 0;
-  top: 30rpx;
-  z-index: 9999;
-  width: 100%;
+.list-box {
+  margin-top: 60rpx;
 }
-.search-box .search-input {
-  background-color: #f8f8f8;
-  height: 70rpx;
-  line-height: 40rpx;
-  text-align: center;
-  border-radius: 30rpx;
-  margin: 0 20rpx;
+.list-box .itme-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.list-box .itme-box .name {
+  font-size: 38rpx;
+  font-weight: 500;
+  color: #303133;
+  margin-right: 10rpx;
+}
+.list-box .itme-box .word {
+  position: absolute;
+  top: 4rpx;
+  background-image: linear-gradient(to right, #FB6932, #FA140E);
+  font-size: 20rpx;
+  color: #fff;
+  padding: 0 10rpx;
+  border-radius: 30rpx 30rpx 30rpx 0;
+}
+.list-box .rightAll {
+  font-weight: normal;
+  color: #959DA5;
+  font-size: 28rpx;
+}
+.list-box .rightAll .iconfont {
+  font-size: 25rpx;
 }
 

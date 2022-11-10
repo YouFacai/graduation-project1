@@ -1,1 +1,1 @@
-<view><search-input vue-id="8dd740cc-1" bind:__l="__l"></search-input><mxg-banner vue-id="8dd740cc-2" bind:__l="__l"></mxg-banner></view>
+<view><search-input vue-id="8dd740cc-1" bind:__l="__l"></search-input><mxg-banner vue-id="8dd740cc-2" bind:__l="__l"></mxg-banner><category-box vue-id="8dd740cc-3" bind:__l="__l"></category-box><view class="list-container"><swiper-list vue-id="8dd740cc-4" name="热门推荐" word="HOT" bind:__l="__l"></swiper-list><recommend vue-id="8dd740cc-5" name="近期上新" word="NEW" bind:__l="__l"></recommend></view></view>

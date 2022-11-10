@@ -1,0 +1,1 @@
+<view class="list-box"><view class="itme-box"><view class="left"><text class="name">{{name}}</text><text class="word" w-if="word">{{word}}</text></view><view class="rightAll"><text>全部</text><text class="iconfont icon-right"></text></view></view><slot></slot></view>

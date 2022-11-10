@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "list-box": "/pages/index/components/swiper-course",
+    "course-item": "/components/common/course-item"
+  }
+}

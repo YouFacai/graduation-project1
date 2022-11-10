@@ -3,6 +3,9 @@
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "mxg-banner": "/components/common/mxg-banner",
-    "search-input": "/components/common/search-input"
+    "search-input": "/components/common/search-input",
+    "category-box": "/pages/index/components/category-box",
+    "swiper-list": "/pages/index/components/swiperList",
+    "recommend": "/pages/index/components/recommend "
   }
 }
