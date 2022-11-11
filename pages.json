@@ -60,7 +60,16 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/scanCode/scanCode",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"globalStyle": {
 			// 状态栏与导航栏背景色
