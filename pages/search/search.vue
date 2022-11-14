@@ -11,15 +11,24 @@
 			</template>
 		</uni-search-bar>
 		<!-- #endif -->
+		<!-- 热门搜索与历史搜索 -->
+		<keyword @handleSearch="handleSearch" v-if="!searched"></keyword>
 	</view>
 </template>
 <script>
+	import {HISTORY_KEY} from '@/enum/keyword-key.js'
+	import keyword from '@/pages/search/components/keyword.vue'
 	export default {
+		components: {
+			keyword
+		},
 		data() {
 			return {
 				params: null,
 				content: "",
-				focus : false,
+				focus: false,
+				//让搜索显示隐藏
+				searched: false,
 				// #ifdef APP-PLUS
 				currentWebview: null,
 				// #endif
@@ -60,7 +69,10 @@
 				//有参数进行查询
 				if (JSON.stringify(options) !== '{}') {
 					// console.log('我是有参数的');
+					console.log(options);
+					this.handelSearchValue(options.lableName)
 					this.params = options
+
 					//调用搜索事件
 					this.handleSearch()
 
@@ -69,16 +81,36 @@
 					//没有参数则让搜索框获得焦点
 					this.currentWebview.setTitleNViewSearchInputFocus(true)
 					// #endif
-
-
 					// #ifdef MP-WEIXIN
 					this.focus = true
 					// #endif
 				}
 			},
 			//搜索事件
-			handleSearch() {
+			handleSearch(obj) {
+				// 获取输入框输入的内容
+				this.content = obj && obj.value ? obj.value : this.content
 				console.log('查询页面');
+				this.searched = true
+				// 查询的时候, 调用存储搜索历史记录方法,将输入框输入的内容存储到本地
+				this.handleSetLocalHistoryData()
+			},
+			// 存储搜索的历史记录
+			handleSetLocalHistoryData() {
+				console.log("----")
+				uni.getStorage({
+					key: HISTORY_KEY,
+					// 本地已经存储过了
+					success: (res) => {
+						this.content && res.data.indexOf(this.content) < 0 && res.data.unshift(this.content)
+						uni.setStorageSync(HISTORY_KEY, res.data)
+					},
+					// 本地没有存储过
+					fail: (err) => {
+						this.content && uni.setStorageSync(HISTORY_KEY, [this.content])
+						console.log("err=>", err)
+					}
+				})
 			}
 		},
 	}

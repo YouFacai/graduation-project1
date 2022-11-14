@@ -2867,6 +2867,24 @@ function normalizeComponent (
       uni.navigateBack({
         dalta: dalta });
 
+    },
+
+    //设置搜索框默认值
+    handelSearchValue: function handelSearchValue(content) {
+      this.$nextTick(function () {
+
+
+
+
+
+
+
+
+
+
+
+
+      });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
@@ -2920,6 +2938,18 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
+
+/***/ }),
+
+/***/ 160:
+/*!***********************************************************!*\
+  !*** D:/桌面/uni-app/uni-app-education/enum/keyword-key.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.HISTORY_KEY = void 0;var HISTORY_KEY = "history_list";exports.HISTORY_KEY = HISTORY_KEY;
 
 /***/ }),
 

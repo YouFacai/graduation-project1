@@ -74,7 +74,7 @@
 				// this.navTo("/pages/search/search?params=" + JSON.stringify(params))
 				// 第二种
 				this.navTo(
-					`/pages/search/search?lableId=${item.id}&lablerName=${item.name}&activeIndex=${this.activeIndx}`)
+					`/pages/search/search?lableId=${item.id}&lableName=${item.name}&activeIndex=${this.activeIndx}`)
 
 			}
 		}

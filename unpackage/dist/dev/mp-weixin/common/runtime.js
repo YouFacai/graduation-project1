@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"pages/index/components/recommend ":1,"components/common/mxg-banner":1,"components/common/search-input":1,"pages/index/components/category-box":1,"components/uni-search-bar/uni-search-bar":1,"components/common/course-item":1,"pages/index/components/swiper-course":1};
+/******/ 		var cssChunks = {"pages/index/components/recommend ":1,"components/common/mxg-banner":1,"components/common/search-input":1,"pages/index/components/category-box":1,"components/uni-search-bar/uni-search-bar":1,"pages/search/components/keyword":1,"components/common/course-item":1,"pages/index/components/swiper-course":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"pages/index/components/list-course":"pages/index/components/list-course","pages/index/components/recommend ":"pages/index/components/recommend ","pages/index/components/swiperList":"pages/index/components/swiperList","components/common/mxg-banner":"components/common/mxg-banner","components/common/search-input":"components/common/search-input","pages/index/components/category-box":"pages/index/components/category-box","components/uni-search-bar/uni-search-bar":"components/uni-search-bar/uni-search-bar","components/common/course-item":"components/common/course-item","pages/index/components/swiper-course":"pages/index/components/swiper-course"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"pages/index/components/list-course":"pages/index/components/list-course","pages/index/components/recommend ":"pages/index/components/recommend ","pages/index/components/swiperList":"pages/index/components/swiperList","components/common/mxg-banner":"components/common/mxg-banner","components/common/search-input":"components/common/search-input","pages/index/components/category-box":"pages/index/components/category-box","components/uni-search-bar/uni-search-bar":"components/uni-search-bar/uni-search-bar","pages/search/components/keyword":"pages/search/components/keyword","components/common/course-item":"components/common/course-item","pages/index/components/swiper-course":"pages/index/components/swiper-course"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

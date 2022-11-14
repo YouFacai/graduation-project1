@@ -155,34 +155,43 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {
-      params: null,
-      content: "",
-      focus: false };
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
 
-  },
-  //小程序可以直接在onLoad里面options获取页面传递的参数
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _keywordKey = __webpack_require__(/*! @/enum/keyword-key.js */ 160); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var keyword = function keyword() {__webpack_require__.e(/*! require.ensure | pages/search/components/keyword */ "pages/search/components/keyword").then((function () {return resolve(__webpack_require__(/*! @/pages/search/components/keyword.vue */ 152));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { keyword: keyword }, data: function data() {return { params: null, content: "", focus: false, //让搜索显示隐藏
+      searched: false };}, //小程序可以直接在onLoad里面options获取页面传递的参数
   onLoad: function onLoad(options) {
     this.witchParams(options);
   },
@@ -217,13 +226,14 @@ var _default =
       //有参数进行查询
       if (JSON.stringify(options) !== '{}') {
         // console.log('我是有参数的');
+        console.log(options);
+        this.handelSearchValue(options.lableName);
         this.params = options;
+
         //调用搜索事件
         this.handleSearch();
 
       } else {
-
-
 
 
 
@@ -234,9 +244,32 @@ var _default =
       }
     },
     //搜索事件
-    handleSearch: function handleSearch() {
+    handleSearch: function handleSearch(obj) {
+      // 获取输入框输入的内容
+      this.content = obj && obj.value ? obj.value : this.content;
       console.log('查询页面');
+      this.searched = true;
+      // 查询的时候, 调用存储搜索历史记录方法,将输入框输入的内容存储到本地
+      this.handleSetLocalHistoryData();
+    },
+    // 存储搜索的历史记录
+    handleSetLocalHistoryData: function handleSetLocalHistoryData() {var _this = this;
+      console.log("----");
+      uni.getStorage({
+        key: _keywordKey.HISTORY_KEY,
+        // 本地已经存储过了
+        success: function success(res) {
+          _this.content && res.data.indexOf(_this.content) < 0 && res.data.unshift(_this.content);
+          uni.setStorageSync(_keywordKey.HISTORY_KEY, res.data);
+        },
+        // 本地没有存储过
+        fail: function fail(err) {
+          _this.content && uni.setStorageSync(_keywordKey.HISTORY_KEY, [_this.content]);
+          console.log("err=>", err);
+        } });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

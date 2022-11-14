@@ -208,7 +208,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/api/index.js */ 23
       // this.navTo("/pages/search/search?params=" + JSON.stringify(params))
       // 第二种
       this.navTo("/pages/search/search?lableId=".concat(
-      item.id, "&lablerName=").concat(item.name, "&activeIndex=").concat(this.activeIndx));
+      item.id, "&lableName=").concat(item.name, "&activeIndex=").concat(this.activeIndx));
 
     } } };exports.default = _default;
 

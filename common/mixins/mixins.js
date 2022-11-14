@@ -25,6 +25,24 @@ export default {
 			uni.navigateBack({
 				dalta
 			})
-		}
+		},
+
+		//设置搜索框默认值
+		handelSearchValue(content) {
+			this.$nextTick(() => {
+				// #ifdef APP-PLUS
+				//获取app端实例
+				const currentWebview = this.$mp.page.$getAppWebview();
+				currentWebview.setTitleNViewSearchInputText(content);
+				// #endif 		
+
+				// #ifdef H5
+				const placeholder = document.querySelector('.uni-page-head-search-placeholder')
+				placeholder.innerHTML = ''
+				const inputSearch = document.querySelector('.uni-input-input[type=search]');
+				inputSearch.value = content;
+				// #endif 
+			})
+		},
 	}
 }
