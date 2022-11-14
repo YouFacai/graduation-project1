@@ -5,7 +5,7 @@
 			{{item.name}}
 		</view>
 		<view class="classify">
-			 全部分类
+			全部分类
 		</view>
 	</view>
 </template>
@@ -15,36 +15,7 @@
 		props: {
 			categoryList: {
 				type: Array,
-				default: () => [{
-						id: 1,
-						name: 'Java',
-					},
-					{
-						id: 2,
-						name: '前端',
-					},
-					{
-						id: 3,
-						name: 'Python',
-					},
-					{
-						id: 4,
-						name: 'UI设计',
-					},
-
-					{
-						id: 5,
-						name: '运维',
-					},
-					{
-						id: 6,
-						name: '人工智能',
-					},
-					{
-						id: 7,
-						name: '实战课程',
-					}
-				]
+				default: () => []
 			}
 		},
 		data() {

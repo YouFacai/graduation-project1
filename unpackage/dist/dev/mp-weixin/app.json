@@ -4,14 +4,17 @@
     "pages/category/category",
     "pages/article/article",
     "pages/question/question",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/scanCode/scanCode",
+    "pages/search/search"
   ],
   "subPackages": [],
   "window": {
     "globalStyle": {
-      "navigationBarBackgroundColor": "#FFFFFF",
       "navigationBarTextStyle": "black",
-      "backgroundColor": "#F8F9FB"
+      "navigationBarBackgroundColor": "#FFFFFF",
+      "backgroundColor": "#F8F9FB",
+      "backgroundColorTop": "#FFFFFF"
     }
   },
   "tabBar": {

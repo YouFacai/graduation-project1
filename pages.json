@@ -34,8 +34,23 @@
 		}, {
 			"path": "pages/category/category",
 			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#345DC2", //背景颜色
+				"navigationBarTextStyle": "white", //字体颜色
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"buttons": [{
+							"color": "#ffffff",
+							"fontSize": "18",
+							"fontSrc": "/static/icon/iconfont.ttf", //指定图标文件
+							"text": "\ue608", //u 开头 ，后面e开始
+							"float": "right" //标题栏可选位置
+						}]
+					}
+				}
+
 			}
 
 		}, {
@@ -59,25 +74,50 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "pages/scanCode/scanCode",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"autoBackButton": false, //隐藏左侧后退按钮(app)
+						"searchInput": {
+							"align": "left",
+							"placeholder": "搜索你想要的内容",
+							"borderRadius": "30rpx",
+							"backgroundColor": "#f0f1f2"
+						},
+						"buttons": [{
+							"float": "right",
+							"text": "取消",
+							"fontSize": "16",
+							"color": "#2A333B"
+						}]
+					}
+				}
+			}
+
 		}
-	    ,{
-            "path" : "pages/scanCode/scanCode",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"globalStyle": {
 			// 状态栏与导航栏背景色
-			"navigationBarBackgroundColor": "#FFFFFF",
-			// 状态栏与导航栏字体颜色，仅支持 black/white(默认)
 			"navigationBarTextStyle": "black",
+			// 状态栏与导航栏字体颜色，仅支持 black/white(默认)
+			"navigationBarBackgroundColor": "#FFFFFF",
 			// 上拉下拉回弹背景色（ios和真机微小程序）
-			"backgroundColor": "#F8F9FB"
+			"backgroundColor": "#F8F9FB",
+			// iOS APP真机bounce回弹区域默认灰色,建议统一重置为白色
+			"backgroundColorTop": "#FFFFFF"
 		}
 	},
 	"uniIdRouter": {},

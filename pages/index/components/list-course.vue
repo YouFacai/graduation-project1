@@ -12,7 +12,6 @@
 		components: {
 			CourseItem,
 			listBox,
-			courseData,
 		},
 		props: {
 			name: {

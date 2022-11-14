@@ -109,7 +109,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"pages/index/components/recommend ":"pages/index/components/recommend ","pages/index/components/swiperList":"pages/index/components/swiperList","components/common/mxg-banner":"components/common/mxg-banner","components/common/search-input":"components/common/search-input","pages/index/components/category-box":"pages/index/components/category-box","components/common/course-item":"components/common/course-item","pages/index/components/swiper-course":"pages/index/components/swiper-course"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"pages/index/components/list-course":"pages/index/components/list-course","pages/index/components/recommend ":"pages/index/components/recommend ","pages/index/components/swiperList":"pages/index/components/swiperList","components/common/mxg-banner":"components/common/mxg-banner","components/common/search-input":"components/common/search-input","pages/index/components/category-box":"pages/index/components/category-box","components/common/course-item":"components/common/course-item","pages/index/components/swiper-course":"pages/index/components/swiper-course"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

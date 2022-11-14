@@ -6,6 +6,7 @@
     "search-input": "/components/common/search-input",
     "category-box": "/pages/index/components/category-box",
     "swiper-list": "/pages/index/components/swiperList",
-    "recommend": "/pages/index/components/recommend "
+    "recommend": "/pages/index/components/recommend ",
+    "list-course": "/pages/index/components/list-course"
   }
 }

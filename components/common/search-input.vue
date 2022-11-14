@@ -1,11 +1,20 @@
 <template>
 	<view class="search-box">
-		<input class="search-input" type="text" placeholder="搜索你想要的内容" disabled>
+		<input  class="search-input" type="text" placeholder="搜索你想要的内容" disabled>
 	</view>
 </template>
 
 <script>
+	export default {
+		data() {
+			return {
 
+			}
+		},
+		methods: {
+			
+		}
+	}
 </script>
 
 <style lang="scss">
