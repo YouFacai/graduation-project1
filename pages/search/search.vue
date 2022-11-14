@@ -1,6 +1,16 @@
 <template>
-	<view>
-		search
+	<view class="search-container">
+		<!-- #ifdef MP-WEIXIN -->
+		<uni-search-bar v-model="content" :focus="focus" placeholder="搜索您想要的内容" @confirm="handleSearch"
+			@cancel="navBack()" radius="100" clearButton="auto" cancelButton="always">
+			<template v-slot:searchIcon>
+				<text class="iconfont icon-search"></text>
+			</template>
+			<template v-slot:clearIcon>
+				<text class="iconfont icon-roundclosefill"></text>
+			</template>
+		</uni-search-bar>
+		<!-- #endif -->
 	</view>
 </template>
 <script>
@@ -9,6 +19,7 @@
 			return {
 				params: null,
 				content: "",
+				focus : false,
 				// #ifdef APP-PLUS
 				currentWebview: null,
 				// #endif
@@ -58,6 +69,11 @@
 					//没有参数则让搜索框获得焦点
 					this.currentWebview.setTitleNViewSearchInputFocus(true)
 					// #endif
+
+
+					// #ifdef MP-WEIXIN
+					this.focus = true
+					// #endif
 				}
 			},
 			//搜索事件
@@ -68,5 +84,14 @@
 	}
 </script>
 <style lang="scss">
-	// 
+	page {
+		// background-color: $i-color-grey;
+	}
+
+	.search-container {
+		width: 750rpx;
+		/* 全屏，不然后面`下拉筛选粘组件`粘顶会失效 */
+		margin: 0;
+		padding: 0;
+	}
 </style>
