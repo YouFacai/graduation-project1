@@ -8,7 +8,7 @@
 		</view>
 
 
-		<view class="title space-between">
+		<view class="title">
 			<text>历史搜索</text>
 			<text @click="ClearHistory">清空</text>
 		</view>
@@ -57,8 +57,11 @@
 		padding: 25rpx;
 
 		.title {
+			width: 100%;
 			font-size: 30rpx;
-
+            display: flex;
+			justify-content: space-between;
+			align-items: center;
 			text:last-child {
 				color: #999;
 			}

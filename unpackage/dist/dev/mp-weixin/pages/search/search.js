@@ -254,15 +254,14 @@ var keyword = function keyword() {__webpack_require__.e(/*! require.ensure | pag
     },
     // 存储搜索的历史记录
     handleSetLocalHistoryData: function handleSetLocalHistoryData() {var _this = this;
-      console.log("----");
       uni.getStorage({
         key: _keywordKey.HISTORY_KEY,
-        // 本地已经存储过了
+        // 本地已经储存的方法
         success: function success(res) {
           _this.content && res.data.indexOf(_this.content) < 0 && res.data.unshift(_this.content);
           uni.setStorageSync(_keywordKey.HISTORY_KEY, res.data);
         },
-        // 本地没有存储过
+        // 本地没有存储的方法
         fail: function fail(err) {
           _this.content && uni.setStorageSync(_keywordKey.HISTORY_KEY, [_this.content]);
           console.log("err=>", err);

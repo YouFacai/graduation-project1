@@ -13,20 +13,30 @@
 		<!-- #endif -->
 		<!-- 热门搜索与历史搜索 -->
 		<keyword @handleSearch="handleSearch" v-if="!searched"></keyword>
+		<!-- tabBar组件  导航栏切换-->
+		<tabBar v-if="searched" v-model="tabIndex"></tabBar>
+		<!-- downBar下拉菜单 -->
+		<down-bar v-if="searched"></down-bar>
 	</view>
 </template>
 <script>
-	import {HISTORY_KEY} from '@/enum/keyword-key.js'
+	import {
+		HISTORY_KEY
+	} from '@/enum/keyword-key.js'
 	import keyword from '@/pages/search/components/keyword.vue'
+	import tabBar from '@/components/common/table-bar.vue'
 	export default {
 		components: {
-			keyword
+			keyword,
+			tabBar
 		},
 		data() {
 			return {
+				tabIndex: 0, //默认选中的TabIndex
 				params: null,
 				content: "",
 				focus: false,
+
 				//让搜索显示隐藏
 				searched: false,
 				// #ifdef APP-PLUS
@@ -97,15 +107,14 @@
 			},
 			// 存储搜索的历史记录
 			handleSetLocalHistoryData() {
-				console.log("----")
 				uni.getStorage({
 					key: HISTORY_KEY,
-					// 本地已经存储过了
+					// 本地已经储存的方法
 					success: (res) => {
 						this.content && res.data.indexOf(this.content) < 0 && res.data.unshift(this.content)
 						uni.setStorageSync(HISTORY_KEY, res.data)
 					},
-					// 本地没有存储过
+					// 本地没有存储的方法
 					fail: (err) => {
 						this.content && uni.setStorageSync(HISTORY_KEY, [this.content])
 						console.log("err=>", err)
