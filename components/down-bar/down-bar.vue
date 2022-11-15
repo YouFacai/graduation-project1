@@ -10,7 +10,7 @@
 			</view>
 
 			<view class="item-list" v-show="item.active">
-				<category class="category" v-if="item.isCategory" />
+				<category class="category" v-if="item.isCategory" :value="item" />
 				<view class="name" v-else @click="changeInfo(item, info)" v-for="(info,index) in item.list"
 					:key="info.id" :class="{active: info.name === item.name}">
 					{{info.name}}
@@ -27,6 +27,10 @@
 	export default {
 
 		props: {
+			params: {
+				type: Object,
+				default: () => {}
+			},
 			downBars: { //下拉筛选相关内容
 				type: Array,
 				default: () => [{
@@ -66,6 +70,21 @@
 		},
 		created() {
 			this.downBarList = this.downBars
+		},
+		watch: {
+			params: {
+				handler(newVal) {
+					if (newVal) {
+						const obj = this.downBars[this.downBars.length - 1]
+						obj.name = newVal.lableName
+						obj.id = newVal.labelId
+						obj.activeIndex = newVal.activeIndex
+						return
+					}
+				},
+				immediate: true,
+				deep: true
+			}
 		},
 		methods: {
 			clickDownView(item) {

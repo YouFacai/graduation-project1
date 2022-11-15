@@ -2603,7 +2603,7 @@ var render = function() {
                   attrs: { _i: "3-" + $30 },
                   on: {
                     click: function($event) {
-                      return _vm.$handleViewEvent($event)
+                      return _vm.$handleViewEvent($event, { stop: true })
                     }
                   }
                 },
@@ -2694,7 +2694,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-
+  props: ["value"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -3678,7 +3678,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _category = _interopRequireDefault(__webpack_require__(/*! @/pages/category/category.vue */ 111));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
-  props: ["downBars"],
+  props: ["params", "downBars"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -3787,7 +3787,7 @@ var render = function() {
                   attrs: { _i: "3-" + $30 },
                   on: {
                     click: function($event) {
-                      return _vm.$handleViewEvent($event)
+                      return _vm.$handleViewEvent($event, { stop: true })
                     }
                   }
                 },
@@ -3878,7 +3878,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-
+  props: ["value"],
   data: function data() {
     return {
       wxsProps: {} };

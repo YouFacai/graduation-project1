@@ -3,7 +3,7 @@
 		<!-- 左侧分类 -->
 		<scroll-view class="left noScorll" scroll-y="true">
 			<view class="title column center">
-				<view :class="{active : index == activeIndx}" @click="handleCategoryIndex(index)"
+				<view :class="{active : index == activeIndx}" @click.stop="handleCategoryIndex(index)"
 					v-for="(item,index) in categoryList" :key="item.id">
 					<view>{{item.name}}</view>
 				</view>
@@ -24,6 +24,12 @@
 	//引入api
 	import indexApi from '@/api/index.js'
 	export default {
+		props: {
+			value: {
+				type: Object,
+				default: () => {}
+			}
+		},
 		data() {
 			return {
 				categoryList: [],
@@ -55,9 +61,36 @@
 					const response = await indexApi.getClassify()
 					// console.log(response);
 					this.categoryList = response
-
 					//页面刷新默认加载第一条数据
 					this.lableList = this.categoryList[this.activeIndx].labelList
+
+					if (this.value) {
+						//每个标签添加不限
+						// console.log('this.value', this.value)
+						// 每个分类下的标签数组中添加`不限`标签(点击不限，就是查询这个分类下的信息)
+						this.categoryList.forEach((item) => {
+							// name是弹窗列表中显示；cname 分类名称，用于点击回显当前分类名；
+							item.labelList.unshift({
+								id: null,
+								name: '不限',
+								cname: item.name,
+								categoryId: item.id
+							})
+						})
+
+						// 将`全部分类`新增到分类数组中的第1个元素
+						this.categoryList.unshift({
+							id: null,
+							name: '全部分类',
+						})
+
+						// 之前是否有选中分类
+						this.activeIndx = this.value.activeIndex > -1 ? parseFloat(this.value.activeIndex) + 1 : this
+							.activeIndx
+					}
+
+
+
 				} catch (e) {
 					//TODO handle the exception
 					console.log(e, "=>err");
@@ -74,7 +107,8 @@
 				// this.navTo("/pages/search/search?params=" + JSON.stringify(params))
 				// 第二种
 				this.navTo(
-					`/pages/search/search?lableId=${item.id}&lableName=${item.name}&activeIndex=${this.activeIndx}`)
+					`/pages/search/search?lableId=${item.id}&lableName=${item.name}&activeIndex=${this.activeIndx}`
+				)
 
 			}
 		}
