@@ -16,7 +16,7 @@
 		<!-- tabBar组件  导航栏切换-->
 		<tabBar v-if="searched" v-model="tabIndex"></tabBar>
 		<!-- downBar下拉菜单 -->
-		<down-bar v-if="searched" :params="params"></down-bar>
+		<down-bar  v-if="searched" :params="params"></down-bar>
 	</view>
 </template>
 <script>

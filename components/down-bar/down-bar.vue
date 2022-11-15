@@ -10,7 +10,7 @@
 			</view>
 
 			<view class="item-list" v-show="item.active">
-				<category class="category" v-if="item.isCategory" :value="item" />
+				<category class="category" v-if="item.isCategory" @searchByLabel="searchByLabel" :value="item" />
 				<view class="name" v-else @click="changeInfo(item, info)" v-for="(info,index) in item.list"
 					:key="info.id" :class="{active: info.name === item.name}">
 					{{info.name}}
@@ -104,9 +104,17 @@
 				// 更改选项上显示的名称
 				item.name = info.name
 				item.id = info.id //传递后，可以高亮显示
-
+				this.$emit('search', {
+					[item.type]: item.id
+				})
 
 			},
+			searchByLabel(label) {
+				this.$emit('search', {
+					labelId: label.id,
+					categoryId: label.categoryId
+				})
+			}
 		}
 	}
 </script>

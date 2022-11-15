@@ -3,7 +3,7 @@
 		<!-- 左侧分类 -->
 		<scroll-view class="left noScorll" scroll-y="true">
 			<view class="title column center">
-				<view :class="{active : index == activeIndx}" @click.stop="handleCategoryIndex(index)"
+				<view :class="{active : index == activeIndx}" @click.stop="handleCategoryIndex(index,item)"
 					v-for="(item,index) in categoryList" :key="item.id">
 					<view>{{item.name}}</view>
 				</view>
@@ -51,7 +51,14 @@
 		},
 		methods: {
 			//点击左侧分类触发的事件
-			handleCategoryIndex(index) {
+			handleCategoryIndex(index, item) {
+				if (item && item.name === '全部分类') {
+					// 传递数据到搜索页
+					this.searchPageChangeLabel(item)
+
+					return
+				}
+
 				this.activeIndx = index
 				this.lableList = this.categoryList[index].labelList
 			},
@@ -90,14 +97,36 @@
 					}
 
 
-
+					this.handleCategoryIndex(this.activeIndx)
 				} catch (e) {
 					//TODO handle the exception
 					console.log(e, "=>err");
 				}
 			},
+
+			//搜索页选择标签
+			searchPageChangeLabel(item) {
+				if (this.value.name !== item.name && this.value.name !== item.cname) {
+					// 赋值给搜索面显示名称，如果有分类名就取分类名，没有就取标签名
+					this.value.name = item.cname || item.name
+					// 标签id
+					this.value.id = item.id || null
+					// 分类id (点击`不限`是分类id，)
+					this.value.categoryId = item.categoryId || null
+
+					// 解决父组件，搜索新数据
+					this.$emit('searchByLabel', this.value)
+				}
+				// 关闭弹窗
+				this.value.active = false
+			},
 			// 跳转搜索页
 			handlePathSearch(item) {
+
+
+				if (this.value) {
+					this.searchPageChangeLabel(item)
+				}
 				//用 params 进行传递参数
 				// const params = {
 				// 	lableId: item.id,

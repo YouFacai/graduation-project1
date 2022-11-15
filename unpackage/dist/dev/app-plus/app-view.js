@@ -3604,7 +3604,12 @@ var render = function() {
               _vm._$g("7-" + $30, "i")
                 ? _c("category", {
                     staticClass: _vm._$g("7-" + $30, "sc"),
-                    attrs: { _i: "7-" + $30 }
+                    attrs: { _i: "7-" + $30 },
+                    on: {
+                      searchByLabel: function($event) {
+                        return _vm.$handleViewEvent($event)
+                      }
+                    }
                   })
                 : _vm._l(_vm._$g(8, "f"), function(info, index, $21, $31) {
                     return _c(
