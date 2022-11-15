@@ -39,7 +39,7 @@
 				this.navTo('/pages/search/search')
 			}
 		},
-		onLoad() {
+		mounted() {
 			// 调用分类方法
 			this.getCategoryList()
 		},
