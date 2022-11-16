@@ -96,7 +96,6 @@
 							.activeIndx
 					}
 
-
 					this.handleCategoryIndex(this.activeIndx)
 				} catch (e) {
 					//TODO handle the exception
@@ -123,9 +122,9 @@
 			// 跳转搜索页
 			handlePathSearch(item) {
 
-
 				if (this.value) {
 					this.searchPageChangeLabel(item)
+					return
 				}
 				//用 params 进行传递参数
 				// const params = {
@@ -138,7 +137,6 @@
 				this.navTo(
 					`/pages/search/search?lableId=${item.id}&lableName=${item.name}&activeIndex=${this.activeIndx}`
 				)
-
 			}
 		}
 	}
