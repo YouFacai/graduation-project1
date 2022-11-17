@@ -81,7 +81,32 @@
 				"enablePullDownRefresh": false
 			}
 
-		}, {
+		},
+
+		{
+			"path": "pages/course/course-details",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#345DC2",
+				"app-plus": {
+					"bounce": "none", //禁止app端页面回弹
+					"scrollIndicator": "none", //app端隐藏滚动条
+					"titleNView": {
+						"type": "transparent" //滚动透明渐变
+							// #ifdef APP-PLUS
+							,
+						"buttons": [ // 只有app才有，注意最前面放逗号,
+							{
+								"type": "share" // 分享按钮
+							}
+						]
+						// #endif
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/search/search",
 			"style": {
 				"navigationBarBackgroundColor": "#fff",
@@ -105,7 +130,6 @@
 					}
 				}
 			}
-
 		}
 	],
 	"globalStyle": {
