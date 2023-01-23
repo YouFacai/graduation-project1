@@ -3,6 +3,8 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
-    "keyword": "/pages/search/components/keyword"
+    "down-bar": "/components/down-bar/down-bar",
+    "keyword": "/pages/search/components/keyword",
+    "tab-bar": "/components/common/table-bar"
   }
 }

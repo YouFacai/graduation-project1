@@ -31,6 +31,11 @@
 				default: () => []
 			}
 		},
+		mounted() {
+			setTimeout((params) => {
+        console.log(this.bannerList)
+			},1000)
+		},
 		data() {
 			return {
 				current: 0, //切换图片的变量

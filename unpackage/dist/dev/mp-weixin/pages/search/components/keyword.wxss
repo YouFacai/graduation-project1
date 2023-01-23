@@ -19,7 +19,11 @@
   padding: 25rpx;
 }
 .keyword .title {
+  width: 100%;
   font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .keyword .title text:last-child {
   color: #999;
