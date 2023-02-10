@@ -11,8 +11,8 @@
 		<categoryBox :categoryList="classifyList"></categoryBox>
 		<!-- 热门推荐、近期上新、免费精选 、付费精品、 -->
 		<view class="list-container">
-			<!-- 热门推荐 -->
-			<swiperList name="热门推荐" word="HOT" :courseData="hotList"></swiperList>
+<!--			&lt;!&ndash; 热门推荐 &ndash;&gt;-->
+<!--			<swiperList name="热门推荐" word="HOT" :courseData="hotList"></swiperList>-->
 			<!-- 近期上新 -->
 			<recommend name="近期上新" word="NEW" :courseData="newList"></recommend>
 			<!-- 免费精选 -->
@@ -127,20 +127,20 @@
 					const response = await IndexModel.getOptionList({
 						sort: "hot"
 					})
-					// console.log(response, 'hot');
 					this.hotList = response
+          console.log(response)
 				} catch (e) {
 					console.log(e);
 				}
 			},
 			//获取近期上新接口数据
-
 			async getNewList() {
 				try {
 					const response = await IndexModel.getOptionList({
 						sort: "new"
 					})
 					this.newList = response
+
 				} catch (e) {
 					console.log(e);
 				}

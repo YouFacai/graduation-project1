@@ -2,10 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/category/category",
+    "pages/mySet/mySet",
     "pages/article/article",
     "pages/question/question",
     "pages/my/my",
     "pages/scanCode/scanCode",
+    "pages/login/index",
     "pages/course/course-details",
     "pages/search/search"
   ],

@@ -22,9 +22,30 @@ const getOptinos = (data) => {
 		data
 	})
 }
+
+// 获取课程详情数据
+const getClassDetails = (data) => {
+	return request({
+		url: "/classDetails",
+		method: "POST",
+		data
+	})
+}
+
+// 获取课程详情数据
+const userslogin = (data) => {
+	return request({
+		url: "/users/login",
+		method: "POST",
+		data
+	})
+}
+
 // 导出所有的api方法
 export default {
 	getBanner,
 	getClassify,
-	getOptinos
+	getOptinos,
+	getClassDetails,
+	userslogin
 }

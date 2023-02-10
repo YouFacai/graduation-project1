@@ -1,7 +1,7 @@
 <template>
 	<list-box :name="name" :word="word">
 		<scroll-view class="list-scroll noScorll" scroll-x="true">
-			<div class="list-scroll-view" v-for="(item,index) in courseData" :key="item.id">
+			<div class="list-scroll-view" v-for="(item,index) in courseData" @click="skip(item)" :key="item.id">
 				<courseItem :isColumn="true" :item="item"></courseItem>
 			</div>
 		</scroll-view>
@@ -35,7 +35,16 @@
 			return {
 
 			}
-		}
+		},
+    methods:{
+      //点击跳转
+      skip(id){
+        console.log(id)
+        uni.navigateTo({
+          url:`/pages/course/course-details?id=${id}`
+        });
+      }
+    }
 	}
 </script>
 

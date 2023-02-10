@@ -17,7 +17,7 @@
 			indicator-color="rgba(255, 255, 255, 0.5)" :indicator-dots="true" :autoplay="true" :interval="3000"
 			:duration="1000">
 			<swiper-item class="banner-item" v-for='(item,index) in bannerList' :key="index">
-				<image @click="navTo(`${item.advertUrl}`)" :src="item.imageUrl" mode=""></image>
+				<image @click="skip(item.advertUrl)" :src="item.imageUrl" mode=""></image>
 			</swiper-item>
 		</swiper>
 	</view>
@@ -32,9 +32,6 @@
 			}
 		},
 		mounted() {
-			setTimeout((params) => {
-        console.log(this.bannerList)
-			},1000)
 		},
 		data() {
 			return {
@@ -62,7 +59,13 @@
 				this.current = e.detail.current;
 				//轮播图切换修改背景色
 				this.bannerBackground = this.bannerList[this.current].background;
-			}
+			},
+      //跳转
+      skip(url){
+        uni.navigateTo({
+          url
+        });
+      }
 		}
 	}
 </script>

@@ -3,5 +3,39 @@
     "projectname": "uni-app-education",
     "setting": {
         "compileHotReLoad": true
+    },
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "课程详情",
+                    "pathName": "pages/course/course-details",
+                    "query": "id=10",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "登录",
+                    "pathName": "pages/login/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "我的",
+                    "pathName": "pages/my/my",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "我的基本信息设置",
+                    "pathName": "pages/mySet/mySet",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
     }
 }

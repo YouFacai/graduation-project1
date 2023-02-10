@@ -10,9 +10,7 @@ const request = (options) => {
 			},
 			data: options.data || {},
 			success: (res) => {
-				if (res.data.code === 20000) {
-					resolve(res.data.data)
-				}
+				resolve(res.data.data || res.data)
 			},
 			fail: (error) => {
 				reject(error)

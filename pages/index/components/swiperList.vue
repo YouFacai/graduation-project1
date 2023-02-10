@@ -1,8 +1,8 @@
 <template>
 	<listBox :name="name" :word="word">
 		<swiper class="list-swiper" :style="{ height: `${210 * rows}rpx` }">
-			<swiper-item v-for="(n, i) in column" :key="i">
-				<view class="swiper-item" v-for="(item, index) in courseData.slice(i * rows, (i + 1) * rows)"
+			<swiper-item v-for="(n, i) in column" :key="i" >
+				<view @click="skip(item)" class="swiper-item" v-for="(item, index) in courseData.slice(i * rows, (i + 1) * rows)"
 					:key="item.id">
 					<CourseItem :item="item"></CourseItem>
 				</view>
@@ -46,7 +46,16 @@
 			return {
 
 			}
-		}
+		},
+    methods:{
+      //点击跳转
+      skip(id){
+        console.log(id)
+        uni.navigateTo({
+          url:`/pages/course/course-details?id=${id}`
+        });
+      }
+    }
 	}
 </script>
 
