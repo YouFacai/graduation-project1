@@ -2,13 +2,8 @@
 export let orderIcons = [{
     id:1,
     iconPath:'/static/icon/waitpay.png',
-    content:'待发货',
+    content:'学习中',
     path:`/pages/order/index?currentComponent=0`,
-},{
-    id:2,
-    iconPath:'/static/icon/waitreap.png',
-    content:'待收获',
-    path:`/pages/order/index?currentComponent=1`,
 },{
     id:3,
     iconPath:'/static/icon/refund.png',
@@ -26,33 +21,35 @@ export let moreIcons = [{
     id:1,
     iconPath:'/static/icon/moreIcons_shopcart.png',
     content:'购物车',
-    path:"/pages/shopcart/index",
+    path:"/pages/question/question",
 },{
     id:2,
     iconPath:'/static/icon/moreIcons_gps.png',
-    content:'收货地址',
-    path:"/pages/address/index",
+    content:'我的课程',
+    path:"/pages/myCourse/myCourse",
 },{
     id:3,
     iconPath:'/static/icon/moreIcons_collect.png',
-    content:'我的收藏',
-    path:"/pages/collect/index",
+    content:'我赞过的',
+    path:"/pages/myLike/myLike",
 },{
     id:4,
     iconPath:'/static/icon/moreIcons_discount.png',
-    content:'优惠券',
-    path:"/pages/Mydiscount/index",
+    content:'名师推荐',
+    path:"/pages/teacherRecommend/teacherRecommend",
 },{
     id:5,
     iconPath:'/static/icon/moreIcons_seckill.png',
-    content:'秒杀'
+    content:'我是讲师',
+    path:"/pages/myteacher/myteacher",
 },{
     id:6,
     iconPath:'/static/icon/moreIcons_conversion.png',
-    content:'我的兑换',
-    path:"",
+    content:'我是管理员',
+    path:"/pages/myadmin/myadmin",
 },{
     id:7,
     iconPath:'/static/icon/moreIcons_service.png',
-    content:'在线客服'
+    content:'在线客服',
+    path:"/pages/service/service",
 }]

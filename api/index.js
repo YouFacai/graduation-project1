@@ -41,11 +41,41 @@ const userslogin = (data) => {
 	})
 }
 
+// 修改用户数据
+const setMyMsg = (data) => {
+	return request({
+		url: "/users/setMsg",
+		method: "POST",
+		data
+	})
+}
+
+/*为课程点赞收藏*/
+const likeCourse = (data) => {
+	return request({
+		url: "/addLikeCourse",
+		method: "POST",
+		data
+	})
+}
+
+/*获取我点赞过的课程*/
+const getLikeCourse = (data) => {
+	return request({
+		url: "/getMylikeCourse",
+		method: "POST",
+		data
+	})
+}
+
 // 导出所有的api方法
 export default {
 	getBanner,
 	getClassify,
 	getOptinos,
 	getClassDetails,
-	userslogin
+	userslogin,
+	setMyMsg,
+	likeCourse,
+	getLikeCourse
 }

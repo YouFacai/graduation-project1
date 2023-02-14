@@ -50,7 +50,6 @@
     methods:{
       //点击跳转
       skip(id){
-        console.log(id)
         uni.navigateTo({
           url:`/pages/course/course-details?id=${id}`
         });

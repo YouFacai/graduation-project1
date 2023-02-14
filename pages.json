@@ -7,6 +7,7 @@
 				"navigationBarTextStyle": "white", // 状态和导航字体样式
 				"app-plus": {
 					"titleNView": { //导航配置
+						"autoBackButton":true,
 						"type": "transparent", //滚动条透明渐变
 						"searchInput": { //搜索框
 							"align": "center", //对齐方式
@@ -20,7 +21,7 @@
 						,
 						"buttons": [{
 							"float": "right", // 在标题栏上的显示位置，可取值"left"、"right"
-							"background": "rgba(0,0,0,0)", //按钮背景色，"type": 
+							"background": "rgba(0,0,0,0)", //按钮背景色，"type":
 							"fontSize": "23", //按钮大小，不要太大，不然会被隐藏
 							"fontSrc": "/static/icon/iconfont.ttf", // 必须放在static目录下
 							"text": "\ue689" // 以 /u 开头，后台加上 e 开头的
@@ -57,7 +58,7 @@
 		{
 			"path": "pages/mySet/mySet",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "设置",
 				"enablePullDownRefresh": false
 			}
 		},{
@@ -89,12 +90,58 @@
 			}
 
 		},{
-			"path": "pages/login/index",
+			"path": "pages/myCourse/myCourse",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "我的课程",
 				"enablePullDownRefresh": false
 			}
 
+		},{
+			"path": "pages/myLike/myLike",
+			"style": {
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true
+					}
+				},
+				"navigationBarTitleText": "我赞过的",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录注册",
+				"enablePullDownRefresh": false
+			}
+
+		},{
+			"path": "pages/teacherRecommend/teacherRecommend",
+			"style": {
+				"navigationBarTitleText": "名师推荐",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/myteacher/myteacher",
+			"style": {
+				"navigationBarTitleText": "我是讲师",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/myadmin/myadmin",
+			"style": {
+				"navigationBarTitleText": "我是管理员",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/service/service",
+			"style": {
+				"navigationBarTitleText": "在线客服",
+				"enablePullDownRefresh": false
+			}
 		},
 
 		{
@@ -128,7 +175,7 @@
 				"app-plus": {
 					"bounce": "none",
 					"titleNView": {
-						"autoBackButton": false, //隐藏左侧后退按钮(app)
+						"autoBackButton": true, //隐藏左侧后退按钮(app)
 						"searchInput": {
 							"align": "left",
 							"placeholder": "搜索你想要的内容",
@@ -189,16 +236,10 @@
 				"selectedIconPath": "static/tab/category-active.png"
 			},
 			{
-				"pagePath": "pages/article/article",
-				"text": "阅读",
-				"iconPath": "static/tab/article.png",
-				"selectedIconPath": "static/tab/article-active.png"
-			},
-			{
 				"pagePath": "pages/question/question",
-				"text": "问答",
-				"iconPath": "static/tab/question.png",
-				"selectedIconPath": "static/tab/question-active.png"
+				"text": "购物车",
+				"iconPath": "static/icon/shopcar.png",
+				"selectedIconPath": "static/icon/shopcar1.png"
 			},
 			{
 				"pagePath": "pages/my/my",

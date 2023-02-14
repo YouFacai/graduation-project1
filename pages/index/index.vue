@@ -102,7 +102,6 @@
 			this.getPayList()
 		},
 		methods: {
-
 			//获取轮播图数据
 			async getBannerList() {
 				try {

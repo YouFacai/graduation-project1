@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import IndexApi from '@/api/index.js'
 export default {
   name: "mySet",
   created() {
@@ -97,8 +98,17 @@ export default {
     }
   },
   methods:{
-    setMsg(){
-      console.log(JSON.stringify(this.usemsg))
+    async setMsg(){
+      let data = await IndexApi.setMyMsg(this.usemsg);
+      uni.setStorage({
+        key: 'userMsg',
+        data: JSON.stringify(this.usemsg),
+        success:  ()=> {
+          this.$refs.uToast.show({
+            message: "设置保存成功"
+          })
+        }
+      });
     }
   }
 }

@@ -15,10 +15,8 @@ export default {
   },
   onLoad: function (option) { //option为object类型，会序列化上个页面传递的参数
     this.id = option.id
-  },
-  created() {
-//  获取全部数据
-    this.getClassDetail({id: this.id})
+    let id = this.id
+    this.getClassDetail({id})
   },
   data() {
     return {
@@ -29,6 +27,7 @@ export default {
   methods: {
     async getClassDetail(param) {
       this.course = await classApi.getClassDetails(param)
+      console.log(this.course)
     }
   }
 }

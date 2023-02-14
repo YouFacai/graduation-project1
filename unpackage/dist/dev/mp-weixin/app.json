@@ -7,7 +7,13 @@
     "pages/question/question",
     "pages/my/my",
     "pages/scanCode/scanCode",
+    "pages/myCourse/myCourse",
+    "pages/myLike/myLike",
     "pages/login/index",
+    "pages/teacherRecommend/teacherRecommend",
+    "pages/myteacher/myteacher",
+    "pages/myadmin/myadmin",
+    "pages/service/service",
     "pages/course/course-details",
     "pages/search/search"
   ],
@@ -41,16 +47,10 @@
         "selectedIconPath": "static/tab/category-active.png"
       },
       {
-        "pagePath": "pages/article/article",
-        "text": "阅读",
-        "iconPath": "static/tab/article.png",
-        "selectedIconPath": "static/tab/article-active.png"
-      },
-      {
         "pagePath": "pages/question/question",
-        "text": "问答",
-        "iconPath": "static/tab/question.png",
-        "selectedIconPath": "static/tab/question-active.png"
+        "text": "购物车",
+        "iconPath": "static/icon/shopcar.png",
+        "selectedIconPath": "static/icon/shopcar1.png"
       },
       {
         "pagePath": "pages/my/my",
