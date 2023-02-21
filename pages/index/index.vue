@@ -92,8 +92,6 @@
 			this.getBannerList()
 			//调用分类数据的方法
 			this.getClassifyList()
-			//获取热门推荐数据
-			this.getHotList()
 			//调用近期上新数据
 			this.getNewList()
 			//调用免费精选数据
@@ -120,26 +118,14 @@
 					console.log(e);
 				}
 			},
-			//获取热门推荐接口数据
-			async getHotList() {
-				try {
-					const response = await IndexModel.getOptionList({
-						sort: "hot"
-					})
-					this.hotList = response
-          console.log(response)
-				} catch (e) {
-					console.log(e);
-				}
-			},
 			//获取近期上新接口数据
 			async getNewList() {
 				try {
-					const response = await IndexModel.getOptionList({
+					const response = await IndexApi.getOptinos({
 						sort: "new"
 					})
 					this.newList = response
-
+          console.log(this.newList);
 				} catch (e) {
 					console.log(e);
 				}
@@ -149,10 +135,11 @@
 			//获取免费精选接口数据
 			async getFreeList() {
 				try {
-					const response = await IndexModel.getOptionList({
+					const response = await IndexApi.getOptinos({
 						isFree: 0
 					})
 					this.freeList = response
+          // console.log(response);
 				} catch (e) {
 					console.log(e);
 				}
@@ -161,7 +148,7 @@
 			//获取付费精品数据
 			async getPayList() {
 				try {
-					const response = await IndexModel.getOptionList({
+					const response = await IndexApi.getOptinos({
 						isFree: 1
 					})
 					this.payList = response
@@ -169,9 +156,6 @@
 					console.log(e);
 				}
 			},
-
-
-
 		}
 	}
 </script>

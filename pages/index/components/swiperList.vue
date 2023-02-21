@@ -51,7 +51,7 @@
       //点击跳转
       skip(id){
         uni.navigateTo({
-          url:`/pages/course/course-details?id=${id}`
+          url:`/pages/course/course-details?id=${id.id}`
         });
       }
     }

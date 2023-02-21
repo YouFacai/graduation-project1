@@ -93,16 +93,18 @@
       <view>
         <view class='moreIcons'>
           <view v-for="item in moreIconsList" :key='item.id' class='moreIcons_item'>
-            <navigator :url="item.path" open-type="reLaunch">
+            <view @click="more(item)">
               <image style="margin: 0 auto" :src="item.iconPath" mode="widthFix"/>
               <view>
                 {{ item.content }}
               </view>
-            </navigator>
+            </view>
           </view>
         </view>
       </view>
     </view>
+    <!--   提示框   -->
+    <u-toast ref="uToast"></u-toast>
   </view>
 
 
@@ -112,17 +114,15 @@
 import {orderIcons, moreIcons} from '../../config/icon.js'
 
 export default {
-  created() {
+  onShow(){
     uni.getStorage({
       key: 'userMsg',
       success:  (res)=> {
-        this.usemsg = JSON.parse(res.data) || {}
-      },
-      fail:()=>{
-        this.usemsg = {}
+        this.usemsg = JSON.parse(res.data)
       }
-    })
+    });
   },
+
   data() {
     return {
       // 渲染 我的订单 收获发货那些
@@ -133,10 +133,34 @@ export default {
     }
   },
   methods: {
+
     //点击跳转
     skip() {
       uni.navigateTo({
         url: `/pages/login/index`
+      });
+    },
+    more(item){
+      /* 我是讲师*/
+      if(item.id == 5){
+        if( this.usemsg.type !==  2) {
+          this.$refs.uToast.show({
+            message: "您没有教师权限，请登录教师账号"
+          })
+          return ;
+        }
+      }
+      /* 我是管理员*/
+      if(item.id == 6){
+        if( this.usemsg.type !==  3) {
+          this.$refs.uToast.show({
+            message: "您没有管理员权限，请登录教师账号"
+          })
+          return;
+        }
+      }
+      uni.navigateTo({
+        url: item.path
       });
     }
   }

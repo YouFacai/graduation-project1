@@ -8,6 +8,7 @@
 <script>
 import brief from '@/pages/course/components/course-handle.vue'
 import classApi from "@/api/index.js"
+import api from "../../api";
 
 export default {
   components: {
@@ -17,6 +18,7 @@ export default {
     this.id = option.id
     let id = this.id
     this.getClassDetail({id})
+    this.myispay()
   },
   data() {
     return {
@@ -27,7 +29,26 @@ export default {
   methods: {
     async getClassDetail(param) {
       this.course = await classApi.getClassDetails(param)
-      console.log(this.course)
+    },
+    /*判断是否购买过课程*/
+    async myispay(){
+      uni.getStorage({
+        key: 'userMsg',
+        success: async (res)=> {
+          let data = await classApi.ispay({userid:JSON.parse(res.data).id,courseId:this.id})
+          this.course = {
+            ispay : data.ispay,
+            ...this.course,
+            vedio:data.ispay == 1 ? await this.getcourseUrl(this.course.id):[]
+          }
+
+        }
+      });
+
+    },
+    async getcourseUrl(courseid) {
+      let data  = await classApi.getcourseVedio({courseid});
+      return data
     }
   }
 }

@@ -13,7 +13,7 @@
         <text :class="{price: course.priceDiscount}">￥{{course.priceOriginal}}</text>
         <text class="preferential" v-if="course.priceDiscount">优惠价</text>
         <view style="position:absolute;right: 20px;top: 10px;width: 20px">
-          {{course.CollectionNum}}<svg @click="tapLike(1)" v-if="1" t="1676080432127" class="icon"
+          {{course.goodRate}}<svg @click="tapLike(1)" v-if="1" t="1676080432127" class="icon"
                                       viewBox="0 0 1024 1024"
                           version="1.1"
                 xmlns="http://www.w3.org/2000/svg" p-id="2741" width="20" height="20"><path d="M857.28 344.992h-264.832c12.576-44.256 18.944-83.584 18.944-118.208 0-78.56-71.808-153.792-140.544-143.808-60.608 8.8-89.536 59.904-89.536 125.536v59.296c0 76.064-58.208 140.928-132.224 148.064l-117.728-0.192A67.36 67.36 0 0 0 64 483.04V872c0 37.216 30.144 67.36 67.36 67.36h652.192a102.72 102.72 0 0 0 100.928-83.584l73.728-388.96a102.72 102.72 0 0 0-100.928-121.824zM128 872V483.04c0-1.856 1.504-3.36 3.36-3.36H208v395.68H131.36A3.36 3.36 0 0 1 128 872z m767.328-417.088l-73.728 388.96a38.72 38.72 0 0 1-38.048 31.488H272V476.864a213.312 213.312 0 0 0 173.312-209.088V208.512c0-37.568 12.064-58.912 34.72-62.176 27.04-3.936 67.36 38.336 67.36 80.48 0 37.312-9.504 84-28.864 139.712a32 32 0 0 0 30.24 42.496h308.512a38.72 38.72 0 0 1 38.048 45.888z" p-id="2742" fill="#f4ea2a"></path></svg>
@@ -40,7 +40,40 @@
         <view style="font-weight: bold;margin-bottom: 10px">课程介绍</view>
         <view >{{course.content}}</view>
       </view>
+<!--  购买后和没购买的视图    -->
+      <view v-if="course.ispay != 1">
+        <u-button @click="skip()" style="margin-top: 10px" type="primary" text="立即购课"></u-button>
+      </view>
+      <view v-else style="margin-top: 20px;padding: 10px;background-color: white">
+        <view style="font-weight: bold;margin-bottom: 10px">课程内容</view>
+        <view class="u-page">
+          <u-list
+          >
+            <u-list-item
+                v-for="(item, index) in course.vedio"
+                :key="index"
+            >
+              <u-cell
+                  @click="onVideo(item)"
+                  :title="`${item.title}-${index + 1}`"
+              >
+                <u-avatar
+                    slot="icon"
+                    shape="square"
+                    size="35"
+                    :src="item.img"
+                    customStyle="margin: -3px 5px -3px 0"
+                ></u-avatar>
+              </u-cell>
+            </u-list-item>
+          </u-list>
+        </view>
+      </view>
     </view>
+    <video @play="play"
+           @fullscreenchange="fullscreenchange" v-show="isshow" id="myVideo"
+           src="https://media.w3.org/2010/05/sintel/trailer.mp4"
+          controls></video>
   </view>
 </template>
 
@@ -63,7 +96,9 @@ export default {
   },
   data() {
     return {
-      usemsg:{}
+      usemsg:{},
+      isshow:true,
+      videoContext:null
     }
   },
   methods:{
@@ -79,9 +114,36 @@ export default {
         }
       })
       let myid = this.usemsg.id
-      this.course.CollectionNum = this.course.CollectionNum+1
+      this.course.goodRate = +(this.course.goodRate) + 1
       api.likeCourse({type,Courseid:id,myid})
-    }
+    },
+    skip(){
+      uni.getStorage({
+        key: 'userMsg',
+        success:  (res)=> {
+          this.usemsg = JSON.parse(res.data)
+        }
+      });
+      uni.navigateTo({
+        url:`/pages/pay/pay?userid=${this.usemsg.id}&courseId=${this.course.id}&money=${this.course.priceDiscount}`
+      });
+    },
+    onVideo(item){
+      this.videoContext = uni.createVideoContext('myVideo', this)
+      this.videoContext.play()
+    },
+    play(index) {
+      console.log(2)
+      this.videoContext.requestFullScreen({direction:90})
+    },
+
+//退出全屏时暂停
+    fullscreenchange(e) {
+      console.log("end")
+      if (!e.detail.fullScreen) {
+        this.videoContext.pause();
+      }
+    },
   }
 }
 </script>
@@ -157,5 +219,30 @@ export default {
       padding: 10px;
     }
   }
+
+
+
+  //#ifndef H5
+  scroll-view {
+    height: auto !important;
+  }
+
+  video{
+    width: 0 !important;
+    height: 0 !important;
+  }
+  #endif
+
+  //#ifndef MP-WEIXIN
+  .u-list {
+    height: auto !important;
+  }
+
+  #myVideo{
+    width: 0;
+    height: 0;
+  }
+  //#endif
+
 }
 </style>

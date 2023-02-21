@@ -18,11 +18,6 @@ export let orderIcons = [{
 
 // home 更多功能
 export let moreIcons = [{
-    id:1,
-    iconPath:'/static/icon/moreIcons_shopcart.png',
-    content:'购物车',
-    path:"/pages/question/question",
-},{
     id:2,
     iconPath:'/static/icon/moreIcons_gps.png',
     content:'我的课程',
@@ -52,4 +47,40 @@ export let moreIcons = [{
     iconPath:'/static/icon/moreIcons_service.png',
     content:'在线客服',
     path:"/pages/service/service",
+}]
+
+/* 我是讲师 */
+export let teacherIcons = [{
+    id:1,
+    iconPath:'/static/icon/course.png',
+    content:'课程管理',
+    path:`/pages/myteacher/course/course`,
+},{
+    id:2,
+    iconPath:'/static/icon/class.png',
+    content:'班级管理',
+    path:`/pages/myteacher/class/class`,
+},{
+    id:3,
+    iconPath:'/static/icon/select.png',
+    content:'搜索教师',
+    path:`/pages/myteacher/select/select`,
+}]
+
+/* 我是管理员 */
+export let adminIcons = [{
+    id:1,
+    iconPath:'/static/icon/course.png',
+    content:'开通讲师账号',
+    path:`/pages/myteacher/class/class`,
+},{
+    id:2,
+    iconPath:'/static/icon/class.png',
+    content:'讲师管理',
+    path:`/pages/myteacher/course/course`,
+},{
+    id:3,
+    iconPath:'/static/icon/select.png',
+    content:'收益可视化',
+    path:`/pages/myteacher/select/select`,
 }]

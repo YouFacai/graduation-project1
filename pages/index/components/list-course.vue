@@ -3,7 +3,6 @@
     <div @click="skip(item)" v-for="(item,index) in courseData" :key="item.id">
       <CourseItem  :item="item"></CourseItem>
     </div>
-
   </listBox>
 </template>
 
@@ -36,10 +35,9 @@ export default {
   },
   methods: {
     //点击跳转
-    skip(id) {
-      console.log(id)
+    skip(id){
       uni.navigateTo({
-        url: `/pages/course/course-details?id=${id}`
+        url:`/pages/course/course-details?id=${id.id}`
       });
     }
   }

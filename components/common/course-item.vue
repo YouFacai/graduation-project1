@@ -12,7 +12,7 @@
 			</view>
 			<view class="teacher">
 				<text class="iconfont icon-laoshi2"></text>
-				<text class="text">{{item.nickName}}</text>
+				<text class="text">{{item.studyTotal}}</text>
 			</view>
 			<div class="price-mf">
 				<view class="origin" v-if="item.isFree==1">

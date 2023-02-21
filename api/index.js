@@ -32,7 +32,7 @@ const getClassDetails = (data) => {
 	})
 }
 
-// 获取课程详情数据
+// 登录
 const userslogin = (data) => {
 	return request({
 		url: "/users/login",
@@ -68,6 +68,69 @@ const getLikeCourse = (data) => {
 	})
 }
 
+/*获取指定老师的课程列表*/
+const getTeacherCourse = (data) => {
+	return request({
+		url: "/getTeacherCourse",
+		method: "get",
+		data
+	})
+}
+
+/*删除指定课程*/
+const deleteTeacherCourse = (data) => {
+	return request({
+		url: "/deleteTeacherCourse",
+		method: "get",
+		data
+	})
+}
+
+/*修改指定课程内容*/
+const setCourse = (data) => {
+	return request({
+		url: "/setTeacherCourse",
+		method: "post",
+		data
+	})
+}
+
+/*新建课程*/
+const addCourse = (data) => {
+	return request({
+		url: "/addTeacherCourse",
+		method: "post",
+		data
+	})
+}
+
+/*新建订单*/
+const addpay = (data) => {
+	return request({
+		url: "/addpay",
+		method: "post",
+		data
+	})
+}
+
+/*查询是否购买过该课程*/
+const ispay = (data) => {
+	return request({
+		url: "/ispay",
+		method: "post",
+		data
+	})
+}
+
+/*查询是否购买过该课程*/
+const getcourseVedio = (data) => {
+	return request({
+		url: "/getcourseVedio",
+		method: "post",
+		data
+	})
+}
+
 // 导出所有的api方法
 export default {
 	getBanner,
@@ -77,5 +140,12 @@ export default {
 	userslogin,
 	setMyMsg,
 	likeCourse,
-	getLikeCourse
+	getLikeCourse,
+	getTeacherCourse,
+	deleteTeacherCourse,
+	setCourse,
+	addCourse,
+	addpay,
+	ispay,
+	getcourseVedio
 }
